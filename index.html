@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mailen Bernardoni — Marketing & Comunicación</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FDFBF8;      /* Fondo más limpio */
+    --ink: #301400;       /* Tu color Chocolate Oscuro */
+    --accent: #88c970;    /* Tu color Verde Hierba */
+    --earth: #916e37;     /* Tu color Marrón Tierra */
+    --muted: #5D4D3F;     /* Variante suave del café */
+    --light-rule: #E8E2D9;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(253, 251, 248, 0.95);
+    border-bottom: 1px solid var(--light-rule);
+    backdrop-filter: blur(10px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    border-right: 1px solid var(--light-rule);
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 0.92;
+    margin-bottom: 2rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 38ch;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--ink);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.9rem 1.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+  .hero-cta:hover { background: var(--earth); transform: translateY(-1px); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 4rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+    background: #F2EEE7;
+  }
+  .hero-photo-placeholder {
+    width: 85%;
+    max-width: 420px;
+    height: 500px;
+    background: var(--light-rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid var(--accent);
+  }
+  .hero-photo-placeholder .initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--earth);
+  }
+
+  /* ── SECCIONES ── */
+  section { padding: 6rem 5rem; }
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    color: var(--earth);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .rule-line { flex: 1; height: 1px; background: var(--light-rule); }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--ink); color: var(--white); }
+  #portfolio .section-title { color: var(--white); }
+  #portfolio .section-number { color: var(--accent); }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 2rem;
+  }
+  .portfolio-item {
+    background: rgba(255,255,255,0.05);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(136, 201, 112, 0.2);
+    transition: all 0.3s;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  .portfolio-item:hover { border-color: var(--accent); background: rgba(136, 201, 112, 0.1); }
+
+  .behance-cta {
+    display: inline-flex;
+    margin-top: 3rem;
+    border: 1px solid var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+  }
+  .behance-cta:hover { background: var(--accent); color: var(--ink); font-weight: bold; }
+
+  /* ── CONTACTO ── */
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">MB</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre mí</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Publicista & Directora Creativa</p>
+    <h1 class="hero-name">Mailen<br><em>Bernar</em>doni</h1>
+    <p class="hero-desc">Licenciada en Comunicación Publicitaria e Institucional. Especialista en branding deportivo y estrategia creativa.</p>
+    <a href="#portfolio" class="hero-cta">Explorar Proyectos ↓</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-placeholder" id="photo-placeholder" onclick="alert('Aquí puedes subir tu foto profesional')">
+      <span class="initials">MB</span>
+      <p>Click para subir foto</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2 class="section-title">Portfolio <em>Behance</em></h2>
+  <p style="opacity: 0.7; margin-bottom: 2rem;">Haz clic en los cuadros para ver mis proyectos destacados directamente en Behance.</p>
+  
+  <div class="portfolio-grid">
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Branding Deportivo</a>
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Estrategia Ribean</a>
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Content Marketing</a>
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Social Media Ads</a>
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Identidad Visual</a>
+    <a href="https://www.behance.net/mailenbernardoni" target="_blank" class="portfolio-item">Campañas 360°</a>
+  </div>
+
+  <center>
+    <a href="https://www.behance.net/mailenbernardoni" class="behance-cta" target="_blank">VER TODO EN BEHANCE</a>
+  </center>
+</section>
+
+<section id="contacto" style="text-align: center; background: var(--cream);">
+  <h2 class="section-title">¿Hablamos?</h2>
+  <p style="margin-bottom: 2rem; color: var(--muted);">Escríbeme para colaborar en nuevos proyectos.</p>
+  <a href="mailto:bernardonimailen2025@gmail.com" class="contact-email">bernardonimailen2025@gmail.com</a>
+</section>
+
+</body>
+</html>
